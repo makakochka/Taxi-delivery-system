@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unassigned Requests</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <h1>Unassigned Delivery Requests</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% if requests %}
+    <table>
+        <thead>
+            <tr>
+                <th>Request ID</th>
+                <th>Dropoff Address</th>
+                <th>Quantity</th>
+                <th>Ordered At</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for req in requests %}
+            <tr>
+                <td>{{ req.request_id }}</td>
+                <td>{{ req.dropoff_address }}</td>
+                <td>5kg袋 × {{ req.quantity }}個</td>
+                <td>{{ req.ordered_at.strftime('%y-%m-%d %H:%M') }}</td>
+                <td class="{% if req.status == 'pending(*)' %}pending-alarm{% endif %}">
+                    {{ 'PENDING' if req.status == 'pending(*)' else req.status }}
+                </td>
+                <td>
+                    {% if req.status != 'pending(*)' or req.driver_id != current_user.id %}
+                    <a href="{{ url_for('delivery.accept_delivery_route', request_id=req.request_id) }}">Assign</a>
+                    {% else %}
+                    <span>Cannot Assign</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    <a href="{{ url_for('dashboard') }}" class="back-link">Back to Dashboard</a>
+</body>
+
+</html>

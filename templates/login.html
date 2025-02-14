@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <h1>Login</h1>
+
+    {% from "macros.html" import render_flash_messages, render_field %}
+    {{ render_flash_messages() }}
+
+    <form method="POST" action="{{ url_for('auth.login') }}">
+        {{ render_field('text', 'driver_id', 'Driver ID', required=true) }}
+        {{ render_field('password', 'password', 'Password', required=true) }}
+        <button type="submit">Login</button>
+    </form>
+
+    <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a>.</p>
+</body>
+
+</html>

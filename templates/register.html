@@ -1,0 +1,69 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script>
+        function validateForm()
+        {
+            if (!validateDriverId()) return false;
+            if (!validatePassword()) return false;
+            return true;
+        }
+
+        function validateDriverId()
+        {
+            const driverIdInput = document.getElementById("driver_id");
+            if (driverIdInput.value.length !== 4)
+            {
+                alert("Driver ID must be exactly 4 characters long.");
+                return false;
+            }
+            return true;
+        }
+
+        function validatePassword()
+        {
+            const password = document.getElementById("password").value;
+            const pattern = /^[a-zA-Z][a-zA-Z0-9_]{7,31}$/;
+
+            if (!pattern.test(password))
+            {
+                alert("Password must be 8-32 characters long, start with a letter, and contain only alphabets, numbers, and underscores in an English font.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Register</h1>
+    <form action="{{ url_for('register') }}" method="POST" onsubmit="return validateForm()">
+        <div class="form-group">
+            <label for="driver_id">Driver ID:</label>
+            <input type="text" id="driver_id" name="driver_id" maxlength="4" required>
+            <div class="requirements">Must be exactly 4 characters</div>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <div class="requirements">Must be 8-32 characters long, start with a letter, and contain only alphabets, numbers, and underscores in an English font</div>
+        </div>
+
+        <button type="submit">Register</button>
+    </form>
+    <p><a href="{{ url_for('auth.login') }}">Already have an account? Login here.</a></p>
+</body>
+
+</html>

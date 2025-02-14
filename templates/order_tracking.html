@@ -1,0 +1,56 @@
+<!-- order_tracking.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <h1>Order Tracking</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% if orders %}
+    <table>
+        <thead>
+            <tr>
+                <th>Request ID</th>
+                <th>Driver ID</th>
+                <th>Dropoff Address</th>
+                <th>Quantity</th>
+                <th>Ordered At</th>
+                <th>Completed At</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.request_id }}</td>
+                <td>{{ order.driver_id if order.driver_id else 'N/A' }}</td>
+                <td>{{ order.dropoff_address }}</td>
+                <td>{{ order.quantity }}</td>
+                <td>{{ order.ordered_at.strftime('%y-%m-%d %H:%M') }}</td>
+                <td>{{ order.completed_at.strftime('%y-%m-%d %H:%M') if order.completed_at else 'N/A' }}</td>
+                <td class="{% if order.status == 'pending(*)' %}pending-alarm{% endif %}">
+                    {{ 'PENDING' if order.status == 'pending(*)' else order.status }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No orders found.</p>
+    {% endif %}
+    <a href="{{ url_for('dashboard') }}" class="back-link">Back to Dashboard</a>
+</body>
+
+</html>

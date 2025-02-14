@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <h1>Dashboard</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <div class="form-group">
+        <p>Welcome, {{ driver_name }}!</p>
+        <p>Current Stock: 5kg米袋 × {{ stock }}個</p>
+    </div>
+
+    <h2>Menu</h2>
+    <ul class="menu">
+        <li><a href="{{ url_for('stock.update_stock_route') }}">Update Stock</a></li>
+        <li><a href="{{ url_for('delivery.view_unassigned_requests_route') }}">View Unassigned Requests</a></li>
+        <li><a href="{{ url_for('delivery.view_my_deliveries_route') }}">View My Deliveries</a></li>
+        <li><a href="{{ url_for('delivery.order_tracking') }}">Order Tracking</a></li>
+        <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+    </ul>
+</body>
+
+</html>

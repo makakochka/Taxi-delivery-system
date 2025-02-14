@@ -1,0 +1,60 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 269-731-582
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:26] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:26] "GET /static/css/styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:30] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:30] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:39] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:39] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:39] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:43] "GET /update_stock HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:43] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:48] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:48] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:50] "GET /unassigned_requests HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:50] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:53] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:53] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:55] "GET /my_deliveries HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:55] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:56] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:57] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:57] "GET /unassigned_requests HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:06:58] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:00] "[32mGET /accept_delivery/23 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:00] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:00] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:02] "GET /my_deliveries HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:02] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:04] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:04] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:05] "GET /order_tracking HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:05] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:11] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:11] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:13] "GET /my_deliveries HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:13] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:16] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:16] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:17] "GET /unassigned_requests HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:17] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:20] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:20] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:23] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:23] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:23] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:30] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:30] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:44] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:44] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:07:44] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:08:48] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:08:48] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:08:48] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:09:02] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:09:02] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Feb/2025 09:09:02] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -

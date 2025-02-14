@@ -1,0 +1,53 @@
+{# Flash Messages Macro #}
+{% macro render_flash_messages() %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+{% endmacro %}
+
+{# Form Field Macro #}
+{% macro render_field(field_type, id, name, required=true, max_length=None) %}
+    <div class="form-group">
+        <label for="{{ id }}">{{ name }}:</label>
+        <input type="{{ field_type }}" 
+               id="{{ id }}" 
+               name="{{ id }}"
+               {% if required %}required{% endif %}
+               {% if max_length %}maxlength="{{ max_length }}"{% endif %}>
+    </div>
+{% endmacro %}
+
+{# Navigation Menu Macro #}
+{% macro render_menu_items(items) %}
+    <ul class="menu">
+        {% for item in items %}
+            <li><a href="{{ item.url }}">{{ item.text }}</a></li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{# Table Macro #}
+{% macro render_table(headers, rows) %}
+    <table>
+        <thead>
+            <tr>
+                {% for header in headers %}
+                    <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    {% for cell in row %}
+                        <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endmacro %}

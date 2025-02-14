@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Deliveries</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script>
+        function confirmAction(action, requestId)
+        {
+            if (action === 'complete')
+            {
+                return confirm(`Are you sure you want to complete delivery for request ID ${requestId}?`);
+            } else if (action === 'resign')
+            {
+                return confirm(`Are you sure you want to resign from delivery for request ID ${requestId}?`);
+            }
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>My Deliveries</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <table>
+        <thead>
+            <tr>
+                <th>Request ID</th>
+                <th>Dropoff Address</th>
+                <th>Quantity</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for del_ in my_deliveries %}
+            <tr>
+                <td>{{ del_[0] }}</td>
+                <td>{{ del_[1] }}</td>
+                <td>5kg袋 × {{ del_[2] }}個</td>
+                <td>{{ del_[3] }}</td>
+                <td>
+                    <a href="{{ url_for('delivery.complete_delivery_route', request_id=del_[0]) }}" onclick="return confirmAction('complete', {{ del_[0] }})">Complete</a>
+                    |
+                    <a href="{{ url_for('delivery.resign_delivery_route', request_id=del_[0]) }}" onclick="return confirmAction('resign', {{ del_[0] }})">Resign</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('dashboard') }}" class="back-link">Back to Dashboard</a>
+</body>
+
+</html>
